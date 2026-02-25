@@ -1,0 +1,39 @@
+#!/usr/bin/env sh
+
+# 1. Secret scanning
+if command -v gitleaks >/dev/null 2>&1; then
+  echo "🔐 Scanning for secrets..."
+  if ! gitleaks protect --staged --config .gitleaks.toml --verbose 2>/dev/null; then
+    echo "❌ Potential secrets detected!"
+    exit 1
+  fi
+  echo "✅ No secrets detected"
+else
+  echo "⚠️  gitleaks not installed - skipping. Install: brew install gitleaks"
+fi
+
+# 2. TypeScript check
+echo "🔷 Running TypeScript check..."
+if ! pnpm tsc --noEmit 2>/dev/null; then
+  echo "❌ TypeScript errors found."
+  exit 1
+fi
+echo "✅ TypeScript passed"
+
+# 3. ESLint strict (zero warnings)
+echo "📏 Running ESLint..."
+if ! pnpm eslint . --ext .ts,.tsx --quiet --max-warnings 0 2>/dev/null; then
+  echo "❌ ESLint errors found."
+  exit 1
+fi
+echo "✅ ESLint passed"
+
+# 4. Prettier check
+echo "🎨 Checking formatting..."
+if ! pnpm prettier --check "src/**/*.{ts,tsx,css,json}" 2>/dev/null; then
+  echo "❌ Formatting issues. Run: pnpm prettier --write \"src/**/*.{ts,tsx,css,json}\""
+  exit 1
+fi
+echo "✅ Formatting passed"
+
+echo "✅ Pre-commit checks passed"

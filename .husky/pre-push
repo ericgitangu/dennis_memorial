@@ -1,0 +1,25 @@
+#!/usr/bin/env sh
+
+RANGE=$(git log --oneline @{u}..HEAD 2>/dev/null | wc -l | tr -d ' ')
+if [ "$RANGE" = "0" ]; then
+  echo "✅ Nothing to push"
+  exit 0
+fi
+
+echo "🏗️  Running pre-push verification..."
+
+# Full production build
+echo "  → Building Next.js..."
+if ! pnpm build 2>/dev/null; then
+  echo "❌ Build failed. Fix before pushing."
+  exit 1
+fi
+echo "✅ Build passed"
+
+# Test suite
+echo "  → Running tests..."
+if ! pnpm test --run 2>/dev/null; then
+  echo "⚠️  Tests failed (non-blocking)"
+fi
+
+echo "✅ Pre-push verification complete"

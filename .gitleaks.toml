@@ -1,0 +1,46 @@
+[extend]
+useDefault = true
+
+[[rules]]
+id = "google-oauth-secret"
+description = "Google OAuth client secret"
+regex = '''GOOGLE_CLIENT_SECRET\s*=\s*['\"]?[A-Za-z0-9_-]{20,}['\"]?'''
+tags = ["google", "oauth"]
+
+[[rules]]
+id = "supabase-service-role"
+description = "Supabase service role key"
+regex = '''SUPABASE_SERVICE_ROLE_KEY\s*=\s*['\"]?eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+['\"]?'''
+tags = ["supabase"]
+
+[[rules]]
+id = "mpesa-credentials"
+description = "M-Pesa API credentials"
+regex = '''MPESA_(CONSUMER_KEY|CONSUMER_SECRET|PASSKEY)\s*=\s*['\"]?[A-Za-z0-9+/=]{10,}['\"]?'''
+tags = ["mpesa", "safaricom"]
+
+[[rules]]
+id = "africas-talking-key"
+description = "Africa's Talking API key"
+regex = '''AFRICAS_TALKING_API_KEY\s*=\s*['\"]?[a-f0-9]{40,}['\"]?'''
+tags = ["africastalking"]
+
+[[rules]]
+id = "anthropic-key"
+description = "Anthropic API key"
+regex = '''sk-ant-[A-Za-z0-9_-]{20,}'''
+tags = ["anthropic"]
+
+[[rules]]
+id = "openai-key"
+description = "OpenAI API key"
+regex = '''sk-[A-Za-z0-9]{20,}'''
+tags = ["openai"]
+
+[allowlist]
+paths = [
+  '''\.test\.ts$''',
+  '''\.test\.tsx$''',
+  '''\.spec\.ts$''',
+  '''\.env\.example$''',
+]
