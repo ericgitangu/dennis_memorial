@@ -18,13 +18,13 @@ export const memorial = {
         id: "birth",
         title: "Birth & Family",
         content:
-          "Denis Letian Sekento was born on January 1, 1985, in Naserian, Kajiado County, to the late Mzee Sekento and Janet Siana Sekento. He was born into a proud Maasai family deeply rooted in their cultural heritage and traditions. As a child of the vast Kajiado plains, Denis grew up surrounded by the beauty of the land and the warmth of community.",
+          "Denis Letian Sekento was born on January 1, 1985, in Kerarapon, Ngong, to Mokosio Siami and Janet Siana Sekento. He was born into a proud Maasai family deeply rooted in their cultural heritage and traditions. Growing up in Kerarapon, Denis was surrounded by the beauty of the land and the warmth of community.",
       },
       {
         id: "childhood",
         title: "Childhood & Education",
         content:
-          "Growing up in Naserian, Denis was known for his curious mind and gentle spirit. He attended local schools in Kajiado where he excelled academically while maintaining strong ties to his Maasai roots. His childhood was marked by a deep respect for elders and an unwavering commitment to family values that would define his character throughout life.",
+          "Growing up in Kerarapon, Ngong, Denis was known for his curious mind and gentle spirit. He attended local schools where he where he excelled academically while maintaining strong ties to his Maasai roots. His childhood was marked by a deep respect for elders and an unwavering commitment to family values that would define his character throughout life.",
       },
       {
         id: "work",
@@ -78,7 +78,7 @@ export const memorial = {
       author: "Janet Siana Sekento",
       role: "Mother",
       content:
-        "My son, my heart. From the day you were born in Naserian, you brought joy to our home. You grew into a man of honor, a man of faith, a man who made his mother proud every single day. No mother should have to say goodbye to her child, but I take comfort knowing you are at peace. You fought the good fight, my son. Enkai akiama — God knows.",
+        "My son, my heart. From the day you were born in Kerarapon, you brought joy to our home. You grew into a man of honor, a man of faith, a man who made his mother proud every single day. No mother should have to say goodbye to her child, but I take comfort knowing you are at peace. You fought the good fight, my son. Enkai akiama — God knows.",
     },
   ],
   programme: [
