@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-export const alt = "Denis Letian Sekento Memorial — 1 Jan 1985 – 21 Feb 2026";
+export const alt = "Denis Letian Sekento Memorial — 5 Feb 1985 – 21 Feb 2026";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

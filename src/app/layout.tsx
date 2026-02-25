@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     template: "%s | Denis Letian Sekento Memorial",
   },
   description:
-    "In loving memory of Denis Letian Sekento (1 Jan 1985 – 21 Feb 2026). He fought a good fight, finished the course, and kept the faith. Burial: Friday 28 Feb 2026, Naserian, Kajiado.",
+    "In loving memory of Denis Letian Sekento (5 Feb 1985 – 21 Feb 2026). He fought a good fight, finished the course, and kept the faith. Burial: Friday 28 Feb 2026, Naserian, Kajiado.",
   keywords: [
     "Denis Letian Sekento",
     "memorial",

@@ -2,7 +2,7 @@ export const memorial = {
   person: {
     fullName: "Denis Letian Sekento",
     firstName: "Denis",
-    birthDate: "1985-01-01",
+    birthDate: "1985-02-05",
     deathDate: "2026-02-21",
     burialDate: "2026-02-28",
     burialLocation: "Naserian, Kajiado",
@@ -18,7 +18,7 @@ export const memorial = {
         id: "birth",
         title: "Birth & Family",
         content:
-          "Denis Letian Sekento was born on January 1, 1985, in Kerarapon, Ngong, to Mokosio Siami and Janet Siana Sekento. He was born into a proud Maasai family deeply rooted in their cultural heritage and traditions. Growing up in Kerarapon, Denis was surrounded by the beauty of the land and the warmth of community.",
+          "Denis Letian Sekento was born on February 5, 1985, in Kerarapon, Ngong, to Mokosio Siami and Janet Siana Sekento. He was born into a proud Maasai family deeply rooted in their cultural heritage and traditions. Growing up in Kerarapon, Denis was surrounded by the beauty of the land and the warmth of community.",
       },
       {
         id: "childhood",
