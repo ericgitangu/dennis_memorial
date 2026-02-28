@@ -1,6 +1,7 @@
 import { memorial } from "@/lib/content";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { MapView } from "@/components/MapView";
 import { Truck, ChefHat, MapPin, Building } from "lucide-react";
 
 export const metadata = {
@@ -34,6 +35,9 @@ const items = [
   },
 ];
 
+// Kipeto, Kajiado coordinates
+const BURIAL_LOCATION = { lat: -1.7768, lng: 36.8219 };
+
 export default function LogisticsPage() {
   return (
     <div className="space-y-8">
@@ -66,6 +70,24 @@ export default function LogisticsPage() {
           </Card>
         ))}
       </div>
+
+      {/* Burial Location Map */}
+      <Card className="bg-card/50 backdrop-blur border-gold/10">
+        <CardHeader>
+          <CardTitle className="font-heading text-lg font-light flex items-center gap-2">
+            <MapPin className="h-5 w-5 text-gold" />
+            Burial Location
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <MapView
+            lat={BURIAL_LOCATION.lat}
+            lng={BURIAL_LOCATION.lng}
+            label="Kipeto, Kajiado — Burial Venue"
+            zoom={13}
+          />
+        </CardContent>
+      </Card>
     </div>
   );
 }

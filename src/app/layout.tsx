@@ -3,6 +3,8 @@ import { Cormorant_Garamond, Crimson_Pro, DM_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { SharePrintWidget } from "@/components/SharePrintWidget";
+import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -36,12 +38,12 @@ export const metadata: Metadata = {
     template: "%s | Denis Letian Sekento Memorial",
   },
   description:
-    "In loving memory of Denis Letian Sekento (5 Feb 1985 – 21 Feb 2026). He fought a good fight, finished the course, and kept the faith. Burial: Friday 28 Feb 2026, Naserian, Kajiado.",
+    "In loving memory of Denis Letian Sekento (5 Feb 1985 – 21 Feb 2026). He fought a good fight, finished the course, and kept the faith. Burial: Thursday 27 Feb 2026, Kipeto, Kajiado.",
   keywords: [
     "Denis Letian Sekento",
     "memorial",
     "obituary",
-    "Naserian",
+    "Kipeto",
     "Kajiado",
     "Maasai",
     "burial",
@@ -52,7 +54,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Denis Letian Sekento | In Loving Memory (1985 – 2026)",
     description:
-      "He fought a good fight, finished the course, and kept the faith. — 2 Timothy 4:7. Burial: Friday 28 Feb 2026, Naserian, Kajiado.",
+      "He fought a good fight, finished the course, and kept the faith. — 2 Timothy 4:7. Burial: Thursday 27 Feb 2026, Kipeto, Kajiado.",
     url: siteUrl,
     siteName: "Denis Letian Sekento Memorial",
     locale: "en_KE",
@@ -86,6 +88,8 @@ export default function RootLayout({
           <Nav />
           <main className="flex-1">{children}</main>
           <Footer />
+          <SharePrintWidget />
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

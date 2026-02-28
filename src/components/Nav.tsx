@@ -15,6 +15,7 @@ const links = [
   { href: "/tributes", label: "Tributes" },
   { href: "/programme", label: "Programme" },
   { href: "/hymns", label: "Hymns" },
+  { href: "/gallery", label: "Gallery" },
 ];
 
 export function Nav() {
@@ -33,12 +34,12 @@ export function Nav() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-2">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-3 py-2 text-sm font-label uppercase tracking-widest transition-colors hover:text-gold ${
+                className={`px-3 py-2 text-xs font-label uppercase tracking-widest transition-colors hover:text-gold ${
                   pathname === link.href ? "text-gold" : "text-muted-foreground"
                 }`}
               >
@@ -74,7 +75,7 @@ export function Nav() {
                       key={link.href}
                       href={link.href}
                       onClick={() => setOpen(false)}
-                      className={`px-3 py-2 text-sm font-label uppercase tracking-widest transition-colors hover:text-gold ${
+                      className={`px-4 py-2 text-xs font-label uppercase tracking-widest transition-colors hover:text-gold ${
                         pathname === link.href ? "text-gold" : "text-muted-foreground"
                       }`}
                     >

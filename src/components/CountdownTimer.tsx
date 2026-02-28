@@ -15,6 +15,26 @@ function getTimeLeft(targetDate: string) {
   };
 }
 
+/**
+ * Returns a human-friendly relative date string:
+ * "today", "yesterday", "3 days ago", "last week", "2 weeks ago", "last month", etc.
+ */
+function getRelativeDate(targetDate: string): string {
+  const target = new Date(targetDate + "T06:00:00+03:00");
+  const now = new Date();
+  const diffMs = now.getTime() - target.getTime();
+  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+  if (diffDays === 0) return "today";
+  if (diffDays === 1) return "yesterday";
+  if (diffDays < 7) return `${diffDays} days ago`;
+  if (diffDays < 14) return "last week";
+  if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`;
+  if (diffDays < 60) return "last month";
+  if (diffDays < 365) return `${Math.floor(diffDays / 30)} months ago`;
+  return `${Math.floor(diffDays / 365)} year${Math.floor(diffDays / 365) > 1 ? "s" : ""} ago`;
+}
+
 const placeholder = ["Days", "Hours", "Minutes", "Seconds"];
 
 function useCountdown(targetDate: string) {
@@ -54,10 +74,19 @@ export function CountdownTimer({ targetDate }: { targetDate: string }) {
 
   if (!mounted || !timeLeft) {
     if (mounted && !timeLeft) {
+      const relative = getRelativeDate(targetDate);
       return (
-        <p className="font-label text-sm uppercase tracking-widest text-gold">
-          The burial service has begun
-        </p>
+        <div className="space-y-3 text-center">
+          <p className="font-label text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+            Laid to rest {relative}
+          </p>
+          <p className="font-heading text-base sm:text-lg italic text-gold dark:text-gold-light leading-relaxed">
+            He fought the good fight, finished the race, and is now at peace.
+          </p>
+          <p className="text-xs text-muted-foreground">
+            Rest in eternal peace, Denis Letian Sekento.
+          </p>
+        </div>
       );
     }
     return (
@@ -67,7 +96,7 @@ export function CountdownTimer({ targetDate }: { targetDate: string }) {
             <span className="text-2xl sm:text-3xl md:text-4xl font-heading font-light text-gold dark:text-gold-light tabular-nums">
               --
             </span>
-            <span className="font-label text-[10px] uppercase tracking-widest text-muted-foreground dark:text-muted-foreground mt-1">
+            <span className="font-label text-[10px] uppercase tracking-widest text-muted-foreground mt-1">
               {label}
             </span>
           </div>
@@ -90,7 +119,7 @@ export function CountdownTimer({ targetDate }: { targetDate: string }) {
           <span className="text-2xl sm:text-3xl md:text-4xl font-heading font-light text-gold dark:text-gold-light tabular-nums">
             {String(unit.value).padStart(2, "0")}
           </span>
-          <span className="font-label text-[10px] uppercase tracking-widest text-muted-foreground dark:text-muted-foreground mt-1">
+          <span className="font-label text-[10px] uppercase tracking-widest text-muted-foreground mt-1">
             {unit.label}
           </span>
         </div>

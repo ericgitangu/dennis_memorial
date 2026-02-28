@@ -116,7 +116,7 @@ export default async function Image() {
             color: "#8B92A8",
           }}
         >
-          Burial: Friday 28 February 2026 | Naserian, Kajiado
+          Burial: Thursday 27 February 2026 | Kipeto, Kajiado
         </div>
       </div>
     </div>,

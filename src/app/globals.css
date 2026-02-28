@@ -135,3 +135,93 @@
     @apply font-heading;
   }
 }
+
+/* ─── Print styles ─── */
+@media print {
+  /* Hide non-content elements */
+  nav,
+  footer,
+  [data-no-print] {
+    display: none !important;
+  }
+
+  /* Reset layout for print */
+  body {
+    min-height: auto;
+  }
+  main {
+    flex: none;
+  }
+
+  /* Typography — use the same elegant fonts */
+  body {
+    font-family: var(--font-crimson), "Crimson Pro", Georgia, serif;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-cormorant), "Cormorant Garamond", serif;
+  }
+
+  /* Color mode (default) — use light theme colors for print */
+  :root,
+  .dark {
+    --background: #ffffff;
+    --foreground: #1a1510;
+    --card: #ffffff;
+    --card-foreground: #1a1510;
+    --gold: #b8924a;
+    --gold-light: #b8924a;
+    --muted-foreground: #6b7394;
+    --border: rgba(184, 146, 74, 0.4);
+    color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Backgrounds & accents for color print */
+  .bg-card\/50,
+  [class*="bg-card"] {
+    background: white !important;
+  }
+
+  /* Remove grain texture overlay */
+  body::before {
+    display: none !important;
+  }
+
+  /* Page breaks */
+  .page-break-before {
+    page-break-before: always;
+  }
+  section {
+    page-break-inside: avoid;
+  }
+
+  /* Gold dividers print nicely */
+  svg {
+    print-color-adjust: exact;
+  }
+
+  /* Accordion content — expand all for print */
+  [data-state="closed"] > [data-slot="accordion-content"] {
+    display: block !important;
+    height: auto !important;
+  }
+}
+
+/* B&W print mode */
+@media print {
+  .print-bw,
+  .print-bw * {
+    color: #000 !important;
+    border-color: #999 !important;
+    background: white !important;
+  }
+  .print-bw svg {
+    filter: grayscale(1);
+  }
+  .print-bw img {
+    filter: grayscale(1);
+  }
+}
